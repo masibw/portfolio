@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#canvas {
+  background-color: #333;
+  position: relative;
+}
+
+#flipbook {
+  width: 1488px;
+  height: 750px;
+  display: inline-block;
+  margin: 3% 5% !important;
+  display: inline-block;
+}
+
+.even {
+  right: auto;
+  background-color: white;
+}
+.odd {
+  left: 20px;
+  background-color: white;
+}
+#flipbook .p1,
+#flipbook .p2,
+#flipbook .p7,
+#flipbook .p8 {
+  background-color: #333;
+  width: 768px !important;
+  height: 800px !important;
+}
+#flipbook .p1 {
+  background-size: 768px, 800px;
+  background-image: url(../img/index.png) !important;
+}
+
+#flipbook .p2 {
+  background-size: 768px, 800px;
+  background-image: url(../img/left.png) !important;
+}
+#flipbook .p7 {
+  background-size: 768px, 800px;
+  background-image: url(../img/right.png) !important;
+}
+
+.tabs {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  border: 1px solid white;
+  display: inline-block;
+  background-color: yellow;
+  z-index: 10000;
+}

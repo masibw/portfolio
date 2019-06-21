@@ -1,34 +1,143 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<title>ましのPortFolio</title>
-<meta name="descripton" content="PortFolio of masi"/>
-<link rel="stylesheet" href="css/base.css"/>
-<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-<sciprt type="text/javascript" src="/js/turn.js"/>
-<script type="text/javascript">
-    $("#flipbook").turn({
-        width: 400,
-        height: 300,
-        autoCenter: true
-    });
-</script>
-</head>
-<body>
-        <div id="flipbook">
-                <div class="hard"> Turn.js </div>
-                <div class="hard"></div>
-                <div> Page 1 </div>
-                <div> Page 2 </div>
-                <div> Page 3 </div>
-                <div> Page 4 </div>
-                <div class="hard"></div>
-                <div class="hard"></div>
-            </div>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>ましのPortFolio</title>
+    <meta name="descripton" content="PortFolio of masi" />
+    <link rel="stylesheet" href="css/base.css" />
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/lib/turn.js"></script>
+    <script type="text/javascript" src="/js/lib/hash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  </head>
+  <body>
+    <!-- This website includes the work that is distributed in the Apache License 2.0-->
+    <div id="canvas">
+      <div id="flipbook">
+        <div ignore="1" class="tabs">
+          <div class="left">縦書き左</div>
+          <div class="right">縦書き右</div>
+        </div>
+        <div class="hard  own-size"></div>
+        <div class="hard  own-size"></div>
+        <div>Page 1 <canvas id="myChart"></canvas></div>
+        <div>Page 2</div>
+        <div>Page 3</div>
+        <div>Page 4</div>
 
-</body>
+        <div class="hard fixed  own-size"></div>
+        <div class="hard  own-size"></div>
+      </div>
+    </div>
 
+    <script type="text/javascript">
+      function loadApp() {
+        var flipbook = $("#flipbook");
+
+        if (flipbook.width() == 0 || flipbook.height() == 0) {
+          setTimeout(loadApp, 10);
+          return;
+        }
+
+        flipbook.turn({
+          pages: 8,
+          elevation: 50,
+          duration: 1000,
+          autoCenter: true,
+          display: "double",
+          when: {
+            turning: function(e, page, view) {
+              var book = $(this),
+                currentPage = book.turn("page"),
+                pages = book.turn("pages");
+
+              if (currentPage > 3 && currentPage < pages - 3) {
+                if (page == 1) {
+                  book
+                    .turn("page", 2)
+                    .turn("stop")
+                    .turn("page", page);
+                  e.preventDefault();
+                  return;
+                } else if (page == pages) {
+                  book
+                    .turn("page", pages - 1)
+                    .turn("stop")
+                    .turn("page", page);
+                  e.preentDefault();
+                  return;
+                }
+              } else if (page > 3 && page < pages - 3) {
+                if (currentPage == 1) {
+                  book
+                    .turn("page", pages - 1)
+                    .turn("stop")
+                    .turn("page", page);
+                  e.preventDefault();
+                  return;
+                }
+              }
+
+              if (page == 1 || page == pages) $("#flipbook.tabs").hide();
+
+              if (page >= 2) $("#flipbook .p2").addClass("fixed");
+              else $("#flipbook .p2").removeClass("fixed");
+
+              if (page < book.turn("pages"))
+                $("#flipbook .p7").addClass("fixed");
+              else $("#flipbook .p7").removeClass("fixed");
+            }
+          },
+          turned: function(e, page, view) {
+            var book = $(this);
+
+            $("#slider").slider("value", getViewNumber(book, page));
+
+            if (page != 1 && page != book.turn("pages"))
+              $(" #flipbook .tabs").fadeIn(500);
+            else $(" #flipbook .tabs").hide();
+
+            book.turn("center");
+            updateTabs();
+          }
+        });
+
+        Hash.on("^page\/([0-9]*)$", {
+          yep: function(path, parts) {
+            var page = parts[1];
+
+            if (page !== undefined) {
+              if ($(" #flipbook").turn("is"))
+                $(" #flipbook").turn("page", page);
+            }
+          },
+          nop: function(path) {
+            if ($(" #flipbook").turn("is")) $(" #flipbook").turn("page", 1);
+          }
+        });
+      }
+      loadApp(); //とりあえず読み込み
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "pie",
+
+        // The data for our dataset
+        data: {
+          labels: ["Skilled"],
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [55, 45]
+            }
+          ]
+        },
+
+        // Configuration options go here
+        options: {}
+      });
+    </script>
+  </body>
 </html>
