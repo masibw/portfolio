@@ -64,7 +64,33 @@
             </table>
           </div>
         </div>
-        <div>Page 2</div>
+        <div>
+          <h1 style="text-align:center">History</h1>
+          <ul>
+            <li>1999年 8月3日 誕生</li>
+            <li>2011年 日本珠算連盟 珠算2段・暗算4段取得</li>
+            <li>
+              2014年 Bootstrapを用いて簡単な紹介ページを作成した(公開停止済み)
+            </li>
+            <li>2015年 JavaでMinecraftのModを作ろうとして挫折</li>
+            <li>2016年 7月 全日本剣道連盟 2段取得</li>
+            <li>2016年 11月 英語検定 2級取得</li>
+            <li>2018年 4月 基本情報技術者試験合格・TOEIC(IP)720点獲得</li>
+            <li>2018年 7月 TOEIC(IP)750点獲得</li>
+            <li>2018年 8月 Unityを使って簡単なゲームを自作</li>
+            <li>2018年 10月 応用情報技術者試験合格</li>
+            <li>2019年 1月 TOEIC(IP)875点獲得・WordPress自作テーマを作成</li>
+            <li>
+              2019年 2月
+              C・Javaの勉強を本格的に始めソートやリスト・ツリーなどの実装を書籍を読みながら行う
+            </li>
+            <li>
+              2019年 6月 ブログとタイポグリセミアクイズwebアプリ(Java
+              SpringBootを使用)を作成・VPSをレンタルしNginxを使用して公開
+            </li>
+            <li>2019年 7月 本ポートフォリオを作成</li>
+          </ul>
+        </div>
         <div>
           <h1 style="text-align:center; margin-bottom:0px;">Skills</h1>
           <div class="radarCharts"><canvas id="languages"></canvas></div>
@@ -78,7 +104,7 @@
           <h1 style="text-align:center;">Works</h1>
           <a href="https://mesimasi.com"
             ><div class="eachWork">
-              <h2>めしまし</h2>
+              <img src="img/mesimasi.png" />
               <p>
                 WordPressを用いたブログです。HTML/CSSを主に用いてスッキリ爽やかなイメージで自作テーマを作成しました。レスポンシブ対応済みです。
               </p>
@@ -86,7 +112,7 @@
           >
           <a href="https://quiz.mesimasi.com">
             <div class="eachWork">
-              <h2>タイポグリセミアクイズ</h2>
+              <img src="img/typoglycemia.png" />
               <p>
                 JavaのSpringBootを用いてクイズアプリを作成しました。DBの使い方やNginxなどのサーバーサイドについても理解を深めることができました。めしましのサブドメインで作成しSSL化も行いました。
               </p>
@@ -218,21 +244,19 @@
         options: {
           maintainAspectRatio: true,
           legend: { position: "bottom" },
-          title: {
-            display: true,
-            fontSize: 20,
-            fontColor: "#666",
-            text: "Language"
-          },
           scale: {
             pointLabels: {
-              fontSize: 15
+              fontSize: 25
             },
             ticks: {
               fontSize: 12,
               beginAtZero: true,
               suggestedMax: 5,
               stepSize: 1
+            },
+            gridLines: {
+              display: true,
+              color: "rgb(100,100,100)"
             }
           }
         }
@@ -250,8 +274,8 @@
               label: "Level",
               data: [4, 3, 3, 2, 2],
               fill: true,
-              backgroundColor: "rgba(0, 121, 194, 0.2)",
-              borderColor: "rgb(0, 121, 194)",
+              backgroundColor: "rgba(0, 121, 194, 0.2)", //線の中の塗りつぶし色
+              borderColor: "rgb(0, 121, 194)", //線自体の色
               pointBackgroundColor: "rgb(0, 121, 194)",
               pointBorderColor: "#fff",
               pointHoverBackgroundColor: "#fff",
@@ -261,22 +285,20 @@
         },
         options: {
           legend: { position: "bottom" },
-          title: {
-            display: true,
-            fontSize: 20,
-            fontColor: "#666",
-            text: "Others"
-          },
           scale: {
             display: true,
             pointLabels: {
-              fontSize: 15
+              fontSize: 25
             },
             ticks: {
               display: true,
               beginAtZero: true,
               suggestedMax: 5,
               stepSize: 1
+            },
+            gridLines: {
+              display: true,
+              color: "rgb(100,100,100)"
             }
           }
         }

@@ -20,7 +20,6 @@ a {
   height: 750px;
   display: inline-block;
   margin: 3% 5% !important;
-  display: inline-block;
 }
 
 .even {
@@ -152,15 +151,22 @@ canvas {
   text-align: center;
 }
 .eachWork p {
-  padding: 10px;
+  padding: 20px;
 }
 
 .eachWork img {
+  margin-top: 10px;
   width: 335px;
   height: 100px;
   object-fit: contain;
+  border-radius: 0%;
+  padding: 10px;
 }
 
 a:hover {
   opacity: 0.8;
+}
+
+li {
+  margin: 10px;
 }
