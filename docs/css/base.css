@@ -21,13 +21,10 @@ a {
   display: inline-block;
   margin: 3% 5% !important;
 }
-
-.even {
-  right: auto;
-  background-image: url("../img/page.png");
-  position: absolute;
-}
-.odd {
+#flipbook .p3,
+#flipbook .p4,
+#flipbook .p5,
+#flipbook .p6 {
   background-image: url("../img/page.png");
   position: absolute;
 }
@@ -117,7 +114,7 @@ a {
 }
 .about {
   margin: auto;
-  width: 450px;
+  width: 400px;
 }
 .about a {
   text-decoration: none;
@@ -127,7 +124,7 @@ a {
 .about th,
 td {
   text-align: left;
-  height: 40px;
+  height: 30px;
 }
 .radarCharts {
   width: 600px;
@@ -169,4 +166,77 @@ a:hover {
 
 li {
   margin: 10px;
+}
+
+@media (max-width: 1487px) {
+  #flipbook {
+    width: 350px;
+    height: 600px;
+    display: inline-block;
+    margin: 3% 5% !important;
+  }
+  #flipbook .p3,
+  #flipbook .p4,
+  #flipbook .p5,
+  #flipbook .p6 {
+    background-image: url("../img/page.png");
+    position: absolute;
+  }
+  #flipbook .p1,
+  #flipbook .p2,
+  #flipbook .p7,
+  #flipbook .p8 {
+    background-color: #333;
+    width: 350px !important;
+    height: 600px !important;
+  }
+  #flipbook .p1 {
+    background-image: url(../img/top-single.png) !important;
+    background-size: 350px 600px;
+  }
+
+  #flipbook .p2 {
+    background-image: url(../img/single.png) !important;
+    background-size: 350px 600px;
+  }
+  #flipbook .p7 {
+    background-image: url(../img/single.png) !important;
+    background-size: 350px 600px;
+  }
+  #flipbook .p8 {
+    background-image: url(../img/back-single.png) !important;
+    background-size: 350px 600px;
+  }
+  li {
+    margin: 3px;
+    font-size: 14px;
+  }
+
+  .radarCharts {
+    width: 350px;
+    height: 220px;
+    margin: auto;
+  }
+
+  .eachWork {
+    width: 150px;
+    height: 180px;
+    margin: 10px 5px;
+    display: inline-block;
+    background-color: #efc889;
+    vertical-align: top;
+    border-radius: 20%;
+  }
+  .eachWork p {
+    padding: 3px;
+  }
+
+  .eachWork img {
+    margin-top: 3px;
+    width: 130px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 0%;
+    padding: 10px;
+  }
 }

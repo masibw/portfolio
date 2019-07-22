@@ -22,8 +22,8 @@
         <div ignore="1" class="tabs">
           <div class="left"></div>
         </div>
-        <div class="hard  own-size"></div>
-        <div class="hard  own-size"></div>
+        <div id="test" class="change hard own-size"></div>
+        <div class="change hard  own-size"></div>
         <div>
           <div class="icon"><img src="img/icon.jpg" /></div>
           <div class="about">
@@ -100,12 +100,12 @@
             1:使ったことはある
           </p>
         </div>
-        <div>
+        <div id="Works">
           <h1 style="text-align:center;">Works</h1>
           <a href="https://mesimasi.com"
             ><div class="eachWork">
               <img src="img/mesimasi.png" />
-              <p>
+              <p class="delete">
                 WordPressを用いたブログです。HTML/CSSを主に用いてスッキリ爽やかなイメージで自作テーマを作成しました。レスポンシブ対応済みです。
               </p>
             </div></a
@@ -113,21 +113,22 @@
           <a href="https://quiz.mesimasi.com">
             <div class="eachWork">
               <img src="img/typoglycemia.png" />
-              <p>
+              <p class="delete">
                 JavaのSpringBootを用いてクイズアプリを作成しました。DBの使い方やNginxなどのサーバーサイドについても理解を深めることができました。めしましのサブドメインで作成しSSL化も行いました。
               </p>
             </div></a
           >
           <div class="eachWork">
             <h2>ポートフォリオ</h2>
-            <p>
+            <p class="delete">
               このポートフォリオです。Turnjsをメインに用いて作成しました。シックな本をイメージし表紙や各ページ背景をデザインしました。
               タブ機能自体はサンプルを真似しただけですが縦書きのタブインデックスにしたりとおもにCSS部分をこだわりました。
             </p>
           </div>
         </div>
-        <div class="hard fixed  own-size"></div>
-        <div class="hard  own-size"></div>
+
+        <div class="f_fixed change hard fixed  own-size"></div>
+        <div class="change hard  own-size"></div>
         <div ignore="1" class="tabs">
           <div class="right"></div>
         </div>
@@ -135,9 +136,35 @@
     </div>
 
     <script type="text/javascript">
+      var windowSize = $(window).width();
+      function isDouble() {
+        windowSize = $(window).width();
+        if (windowSize >= 1488) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      function changeClassToMobile() {
+        if (windowSize <= 1488) {
+          $(".change")
+            .removeClass("hard")
+            .removeClass("own-size")
+            .removeClass("fixed");
+        }
+      }
+      function deleteDescription() {
+        $(".delete").remove();
+      }
+
       function loadApp() {
         var flipbook = $("#flipbook");
-
+        var mode = "double";
+        if (isDouble()) {
+          mode = "double";
+        } else {
+          mode = "single";
+        }
         if (flipbook.width() == 0 || flipbook.height() == 0) {
           setTimeout(loadApp, 10);
           return;
@@ -148,7 +175,7 @@
           elevation: 50,
           duration: 1000,
           autoCenter: true,
-          display: "double",
+          display: mode,
 
           when: {
             turning: function(e, page, view) {
@@ -201,7 +228,9 @@
               else $(" #flipbook .tabs").hide();
 
               book.turn("center");
-              updateTabs();
+              if (isDouble()) {
+                updateTabs();
+              }
             }
           }
         });
@@ -220,8 +249,13 @@
           }
         });
       }
-
+      deleteDescription();
+      $("#Works").append(
+        "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
+      );
+      changeClassToMobile();
       loadApp(); //とりあえず読み込み
+
       var ctx = document.getElementById("languages").getContext("2d");
       var chart = new Chart(ctx, {
         type: "radar",
@@ -301,6 +335,17 @@
               color: "rgb(100,100,100)"
             }
           }
+        }
+      });
+
+      $(window).resize(function() {
+        if (windowSize <= 1488) {
+          $(".change")
+            .removeClass("hard own-size")
+            .removeClass("own-size")
+            .removeClass("fixed");
+          $(".delete").remove();
+          loadApp();
         }
       });
     </script>
