@@ -249,7 +249,9 @@
           }
         });
       }
-      deleteDescription();
+      if (!isDouble()) {
+        deleteDescription();
+      }
       $("#Works").append(
         "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
       );
