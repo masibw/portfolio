@@ -130,8 +130,15 @@
               タブ機能自体はサンプルを真似しただけですが縦書きのタブインデックスにしたりとおもにCSS部分をこだわりました。
             </p>
           </div>
+          <a href="https://masibw.github.io/MRoulette/">
+            <div class="eachWork">
+              <h2>MRoulette</h2>
+              <p class="delete">
+                Vue.js,Nuxt.jsを用いて作成したルーレットアプリです。比率設定にも対応しています。Chart.jsを用いてルーレットの表示を行なっています。
+              </p>
+            </div>
+          </a>
         </div>
-
         <div class=" change hard fixed  own-size"></div>
         <div class="change hard  own-size"></div>
         <div ignore="1" class="tabs">
@@ -257,9 +264,11 @@
       if (!isDouble()) {
         deleteDescription();
       }
-      $("#Works").append(
-        "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
-      );
+      if (windowSize <= 1488) {
+        $("#Works").append(
+          "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
+        );
+      }
       changeClassToMobile();
       loadApp(); //とりあえず読み込み
 
