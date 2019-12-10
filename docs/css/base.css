@@ -179,6 +179,16 @@ li {
 }
 
 @media (max-width: 1487px) {
+  .icon img {
+    border-radius: 50%;
+    width: 60%;
+    height: 40%;
+  }
+
+  .about {
+    width: 95%;
+  }
+
   #flipbook {
     width: 350px;
     height: 600px;
