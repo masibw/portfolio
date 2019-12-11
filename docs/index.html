@@ -118,6 +118,7 @@
         <div >
           
           <h1 id="Works" style="text-align:center;">Works</h1>
+          <span id="forMobile"></span>
           <a href="https://mesimasi.com"
             ><div class="eachWork">
               <img src="img/mesimasi.png" />
@@ -276,7 +277,7 @@
         deleteDescription();
       }
       if (windowSize <= 1488) {
-        $("#Works").append(
+        $("#forMobile").append(
           "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
         );
       }
