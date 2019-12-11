@@ -178,6 +178,39 @@ li {
   margin: 10px;
 }
 
+#history:before,
+#history:after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/history.png);
+  background-size: contain;
+  vertical-align: middle;
+}
+#skills:before,
+#skills:after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/skills.png);
+  background-size: contain;
+  vertical-align: bottom;
+  margin: 10px;
+}
+#Works:before,
+#Works:after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url(../img/works.png);
+  background-size: contain;
+  vertical-align: bottom;
+  margin: 10px;
+}
+
 @media (max-width: 1487px) {
   .icon img {
     border-radius: 50%;
