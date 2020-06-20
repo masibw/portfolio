@@ -100,6 +100,17 @@
             <li>
               2020年 3月 <strong>Recruit Speed Hackathon 2020 優勝</strong>
             </li>
+            <li>
+              2020年 5月
+              <strong>危機管理コンテスト 本戦出場&インサイト賞</strong>
+            </li>
+            <li>
+              2020年 6月
+              <strong
+                >2days サーバーサイド向け 開発型インターンシップ
+                ONLINE参加</strong
+              >
+            </li>
           </ul>
         </div>
         <div>
@@ -148,6 +159,27 @@
             </div>
           </a>
         </div>
+        <div>
+          <h1 id="Works" style="text-align: center;">Works</h1>
+          <span id="forMobile"></span>
+          <div>
+            <div class="eachWork">
+              <img src="img/DOUTINE.png" />
+              <p class="delete">
+                定期的に行う動作、いわゆるルーティンワークの管理を中心としたTODOアプリです。定期の更新や水槽の水の入れ替えなど決まった日に行うことではないが一定期間の後に行いたいものを管理できるようにするIOSアプリです。
+              </p>
+            </div>
+          </div>
+          <a href="https://masi-queston-box.tk">
+            <div class="eachWork">
+              <img src="img/masi-question-box.png" />
+              <p class="delete">
+                自分用の質問箱アプリです。Railsを用いて開発しサーバーにはGCPを使用しています。
+              </p>
+            </div>
+          </a>
+        </div>
+        <div></div>
         <div class="change hard fixed own-size"></div>
         <div class="change hard own-size"></div>
         <div ignore="1" class="tabs">
@@ -192,7 +224,7 @@
         }
 
         flipbook.turn({
-          pages: 8,
+          pages: 10,
           elevation: 50,
           duration: 1000,
           autoCenter: true,
@@ -232,8 +264,8 @@
               else $("#flipbook .p2").removeClass("fixed");
 
               if (page < book.turn("pages"))
-                $("#flipbook .p7").addClass("fixed");
-              else $("#flipbook .p7").removeClass("fixed");
+                $("#flipbook .p9").addClass("fixed");
+              else $("#flipbook .p9").removeClass("fixed");
 
               if (page != 1 && page != book.turn("pages"))
                 $(" #flipbook .tabs").fadeIn(500);
