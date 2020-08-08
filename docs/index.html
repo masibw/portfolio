@@ -192,7 +192,7 @@
       var windowSize = $(window).width();
       function isDouble() {
         windowSize = $(window).width();
-        if (windowSize >= 1488) {
+        if (windowSize >= 600) {
           return true;
         } else {
           return false;
@@ -212,12 +212,12 @@
           if (!isDouble()) {
           deleteDescription();
         }
-        if (windowSize <= 1488) {
+        if (windowSize <=600) {
           $("#forMobile").append(
             "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
           );
         }
-        if (windowSize <= 1488) {
+        if (windowSize <= 600) {
           changeClassToMobile();
         }
         var flipbook = $("#flipbook");
@@ -412,10 +412,10 @@
       });
       //画面の大きさが変わった時に再読み込みする(reload以外の方法を試したがうまくいかなかった)
       $(window).resize(function () {
-        if (windowSize>1488 && $(window).width() <= 1488) {
+        if (windowSize>600 && $(window).width() <= 600) {
           windowSize=$(window).width();
           location.reload()
-        }else if(windowSize<=1488 && $(window).width() >1488){
+        }else if(windowSize<=600 && $(window).width() >600){
            windowSize = $(window).width();
           location.reload()
         }
