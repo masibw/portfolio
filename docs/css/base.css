@@ -213,7 +213,7 @@ li {
   margin: 10px;
 }
 
-@media (max-width: 1487px) {
+@media (max-width: 600px) {
   .icon img {
     border-radius: 50%;
     width: 60%;
