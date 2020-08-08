@@ -199,18 +199,27 @@
         }
       }
       function changeClassToMobile() {
-        if (windowSize <= 1488) {
           $(".change")
             .removeClass("hard")
             .removeClass("own-size")
             .removeClass("fixed");
-        }
       }
       function deleteDescription() {
         $(".delete").remove();
       }
 
       function loadApp() {
+          if (!isDouble()) {
+          deleteDescription();
+        }
+        if (windowSize <= 1488) {
+          $("#forMobile").append(
+            "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
+          );
+        }
+        if (windowSize <= 1488) {
+          changeClassToMobile();
+        }
         var flipbook = $("#flipbook");
         var mode = "double";
         if (isDouble()) {
@@ -299,15 +308,7 @@
           },
         });
       }
-      if (!isDouble()) {
-        deleteDescription();
-      }
-      if (windowSize <= 1488) {
-        $("#forMobile").append(
-          "<p>*モバイル向けの簡易表示です。PCでの閲覧をおすすめします。</p>"
-        );
-      }
-      changeClassToMobile();
+    
       loadApp(); //とりあえず読み込み
 
       var ctx = document.getElementById("languages").getContext("2d");
@@ -409,15 +410,14 @@
           },
         },
       });
-
+      //画面の大きさが変わった時に再読み込みする(reload以外の方法を試したがうまくいかなかった)
       $(window).resize(function () {
-        if (windowSize <= 1488) {
-          $(".change")
-            .removeClass("hard own-size")
-            .removeClass("own-size")
-            .removeClass("fixed");
-          $(".delete").remove();
-          loadApp();
+        if (windowSize>1488 && $(window).width() <= 1488) {
+          windowSize=$(window).width();
+          location.reload()
+        }else if(windowSize<=1488 && $(window).width() >1488){
+           windowSize = $(window).width();
+          location.reload()
         }
       });
     </script>
